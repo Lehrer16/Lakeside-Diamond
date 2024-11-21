@@ -1,2 +1,2 @@
 # Lakeside
-LakeSide Diamond 
+Lakeside Diamond Webpage
