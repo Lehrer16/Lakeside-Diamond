@@ -1,0 +1,43 @@
+body {
+  background-color: black;
+}
+
+
+#createAccount {
+  display: flex;
+  position: absolute;
+  right: 80px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  margin: auto;
+  margin-top: 0vh;
+  margin-bottom: 1.5vh;
+  border-radius: 25px;
+  background-color: none;
+  font-size: 1.5em;
+  opacity: 0.80;
+}
+
+
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 5vh;
+  width: 160px;
+  height: 120px;
+}
+
