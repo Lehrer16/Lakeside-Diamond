@@ -1,2 +1,2 @@
-# LakeSide
+# Lakeside
 LakeSide Diamond 
