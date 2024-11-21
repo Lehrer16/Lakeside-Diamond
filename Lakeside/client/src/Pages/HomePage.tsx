@@ -18,6 +18,10 @@ const Home: React.FC = () => {
             </div>
 
             <div>
+                <h1>Socials (Maybe in navbar?)</h1>
+            </div>
+
+            <div>
                 <h1>Contact Form</h1>
             </div>
         </div>
