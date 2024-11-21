@@ -7,6 +7,9 @@ const Photos: React.FC = () => {
 
     return (
         <div>
+            <div>
+                    <Link to="https://www.lakesidediamond.com">REFRENCE PAGE</Link>
+            </div>  
             <img className="logo" src={logo} alt="Lakeside Logo" />
 
             <header>
@@ -18,7 +21,7 @@ const Photos: React.FC = () => {
             <div className="loginBox">
                 <h1>Photos Page</h1>
             </div>
-            
+
         </div>
     );
 };

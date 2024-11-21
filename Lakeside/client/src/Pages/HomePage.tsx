@@ -7,6 +7,9 @@ const Home: React.FC = () => {
 
     return (
         <div>
+                        <div>
+                    <Link to="https://www.lakesidediamond.com">REFRENCE PAGE</Link>
+            </div>  
             <img className="logo" src={logo} alt="Lakeside Logo" />
 
             <header>
