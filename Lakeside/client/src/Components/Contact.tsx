@@ -47,19 +47,20 @@ export default function Contact() {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-3xl mx-auto py-10 text-input">
         
-        <div className="grid grid-cols-12 gap-4">
+        <div className="grid grid-cols-12 gap-4  focus:resize-none">
           
-          <div className="col-span-6">
+          <div className="col-span-6  focus:resize-none">
             
         <FormField
           control={form.control}
           name="name_1228552691"
           render={({ field }) => (
-            <FormItem>
+            <FormItem >
               <FormLabel>First Name</FormLabel>
               <FormControl>
                 <Input 
                 placeholder=""
+                className=""
                 type=""
                 {...field} />
               </FormControl>
@@ -95,11 +96,12 @@ export default function Contact() {
           control={form.control}
           name="name_2379382481"
           render={({ field }) => (
-            <FormItem className="flex flex-col items-start">
+            <FormItem className="flex flex-col items-start resize-none">
               <FormLabel>Phone number</FormLabel>
                 <FormControl className="w-full">
                   <PhoneInput
                     placeholder=""
+                    className="resize-none"
                     {...field}
                     defaultCountry="US"
                   />
@@ -128,7 +130,7 @@ export default function Contact() {
           )}
         />
 <Button
-  className="links"
+  className="links border-input hover:bg-input hover:text-black"
   variant="outline"
 >
   Send

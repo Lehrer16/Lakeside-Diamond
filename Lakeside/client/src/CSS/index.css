@@ -33,7 +33,6 @@ header {
   border-radius: 25px;
   background-color: none;
   font-size: 1.5em;
-  opacity: 0.80;
 }
 
 
@@ -84,8 +83,6 @@ header {
   align-items: start;
   margin-top: 30px;
   margin-right: 10px;
-  background-color: var(--accent-foreground);
-  color: rgb(0, 0, 0);
   width: 100px;
 }
 

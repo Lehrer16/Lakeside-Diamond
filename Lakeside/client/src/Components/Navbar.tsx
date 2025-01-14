@@ -48,7 +48,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="navbar-container">
-      <div className="left-row">
+      <div className="left-row text-white">
         {showHomeButton && (
           <Button
             ref={buttonRef}
