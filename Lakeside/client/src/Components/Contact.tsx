@@ -12,10 +12,10 @@ import { Textarea } from "./ui/textarea";
 import { Alert, AlertTitle, AlertDescription } from "./ui/alert";
 
 const formSchema = z.object({
-  firstName: z.string(),
-  lastName: z.string(),
-  phoneNumber: z.string(),
-  message: z.string()
+  firstName: z.string().nonempty("First name is required"),
+  lastName: z.string().nonempty("Last name is required"),
+  phoneNumber: z.string().nonempty("Phone number is required"),
+  message: z.string().nonempty("Message is required")
 });
 
 type FormSchema = z.infer<typeof formSchema>;
