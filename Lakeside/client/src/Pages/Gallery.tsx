@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React from 'react';
 import logo from '../assets/logo.png';
 import example from '../assets/example.jpg';
@@ -12,7 +13,9 @@ const Gallery: React.FC = () => {
         <div>
 
  
-            <img className="logo" src={logo} alt="Lakeside Logo" />
+            <Link to="/">
+                <img className="logo" src={logo} alt="Lakeside Logo" />
+            </Link>
 
             <Navbar showPhotosButton={false} />
 

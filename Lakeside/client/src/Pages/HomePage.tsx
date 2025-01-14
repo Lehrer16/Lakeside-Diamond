@@ -9,33 +9,28 @@ const Home: React.FC = () => {
 
     return (
         <div>
+            <Link to="/">
+                <img className="logo" src={logo} alt="Lakeside Logo" />
+            </Link>
 
-            
-            <img className="logo" src={logo} alt="Lakeside Logo" />
-
-            <Navbar showHomeButton={false}/>
+            <Navbar showHomeButton={false} />
 
             <div>
-            <Link to='/Login'>login</Link>
+                <Link to='/Login'>ADMIN LOGIN</Link>
                 <h1 className="todo">Instagram API</h1>
                 <img className="instaAPI" src={example} alt="Example Photo" />
             </div>
             <div className="contact">
-            <h1 className="contactInfo">CONTACT US</h1>
-            <h1 className="contactInfo">For information about inventory or inquiries about a custom project leave contact below with a brief description.</h1>
-            
-            <Contact />
+                <h1 className="contactInfo">CONTACT US</h1>
+                <h1 className="contactInfo">For information about inventory or inquiries about a custom project leave contact below with a brief description.</h1>
+                
+                <Contact />
             </div>
 
             <div>
-
-            
-            <a className='todo'href="https://www.lakesidediamond.com" target="_blank" rel="noopener noreferrer">REFERENCE PAGE</a>
-
+                <a className='todo' href="https://www.lakesidediamond.com" target="_blank" rel="noopener noreferrer">REFERENCE PAGE</a>
             </div>  
-            
         </div>
-        
     );
 };
 
