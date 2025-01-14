@@ -88,6 +88,30 @@ header {
   width: 100px;
 }
 
+.links:hover {
+  background-color: grey;
+}
+
+.contact {
+
+  background-color: black;
+  color: white;
+  
+}
+
+.contact input {
+
+  background-color: black;
+  color: white;
+  
+}
+.contact textarea{
+  background-color: black;
+}
+.phone {
+  background-color: black;
+}
+
 
 @layer base {
   :root {

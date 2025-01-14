@@ -5,7 +5,7 @@ import example from '../assets/example.jpg';
 import Navbar from "../Components/Navbar";
 
 
-const Photos: React.FC = () => {
+const Login: React.FC = () => {
 
 
 
@@ -15,6 +15,8 @@ const Photos: React.FC = () => {
             <Link to="https://www.lakesidediamond.com">REFERENCE PAGE</Link>
  
             <img className="logo" src={logo} alt="Lakeside Logo" />
+
+            <h1>Login Page</h1>
 
             <Navbar showHomeButton={true} showPhotosButton={false} showInstagramButton={true} />
 
@@ -34,4 +36,4 @@ const Photos: React.FC = () => {
     );
 };
 
-export default Photos;
+export default Login;

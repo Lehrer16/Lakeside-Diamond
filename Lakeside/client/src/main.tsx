@@ -22,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/Photos",
         element: <Photos />
+      }, 
+      {
+        path: "/Login",
+        element: <Photos />
       },  
 
 
