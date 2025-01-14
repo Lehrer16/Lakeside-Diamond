@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import React from 'react';
 import logo from '../assets/logo.png';
 import example from '../assets/example.jpg';
@@ -17,7 +16,7 @@ const Photos: React.FC = () => {
 
             <Navbar showPhotosButton={false} />
 
-            <h1>Photos Page</h1>
+            <h1 className='todo'>Photo Browser</h1>
 
             <div className="photos">
 
@@ -28,8 +27,10 @@ const Photos: React.FC = () => {
                 <img className="insta" src={example} alt="Example Photo" />
                 <img className="insta" src={example} alt="Example Photo" />
             </div>
+            
 
-            <Link to="https://www.lakesidediamond.com">REFERENCE PAGE</Link>
+            <a className='todo' href="https://www.lakesidediamond.com" target="_blank" rel="noopener noreferrer">REFERENCE PAGE</a>
+
 
         </div>
     );

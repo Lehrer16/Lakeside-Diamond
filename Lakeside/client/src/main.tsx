@@ -7,6 +7,7 @@ import App from './App.tsx';
 import ErrorPage from './Pages/ErrorPage.tsx';
 import Home from './Pages/HomePage.tsx';
 import Photos from './Pages/Photos.tsx';
+import Login from './Pages/Login.tsx';
 
 
 const router = createBrowserRouter([
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
       }, 
       {
         path: "/Login",
-        element: <Photos />
+        element: <Login />
       },  
 
 

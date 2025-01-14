@@ -16,15 +16,22 @@ const Home: React.FC = () => {
             <Navbar showHomeButton={false}/>
 
             <div>
-                <h1>Instagram API</h1>
+            <Link to='/Login'>login</Link>
+                <h1 className="todo">Instagram API</h1>
                 <img className="instaAPI" src={example} alt="Example Photo" />
             </div>
             <div className="contact">
+            <h1 className="contactInfo">CONTACT US</h1>
+            <h1 className="contactInfo">For information about inventory or inquiries about a custom project leave contact below with a brief description.</h1>
+            
             <Contact />
             </div>
 
             <div>
-                <Link to="https://www.lakesidediamond.com">REFERENCE PAGE</Link>
+
+            
+            <a className='todo'href="https://www.lakesidediamond.com" target="_blank" rel="noopener noreferrer">REFERENCE PAGE</a>
+
             </div>  
             
         </div>

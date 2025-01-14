@@ -9,7 +9,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "./ui/input";
 import { PhoneInput } from './ui/phone-input';
 import { Textarea } from "./ui/textarea";
-import { Alert, AlertTitle, AlertDescription } from "./ui/alert"; // Import Alert components
+import { Alert, AlertTitle, AlertDescription } from "./ui/alert";
 
 const formSchema = z.object({
   firstName: z.string(),
@@ -21,10 +21,16 @@ const formSchema = z.object({
 type FormSchema = z.infer<typeof formSchema>;
 
 const Contact: React.FC = () => {
-  const [alertVisible, setAlertVisible] = useState(false); // State for alert visibility
-  const [buttonVisible, setButtonVisible] = useState(true);
+  const [alertVisible, setAlertVisible] = useState(false); 
+  const [buttonVisible, setButtonVisible] = useState(true); 
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      firstName: '', 
+      lastName: '',
+      phoneNumber: '',
+      message: ''
+    }
   });
 
   const onSubmit = async (values: FormSchema) => {
@@ -35,7 +41,7 @@ const Contact: React.FC = () => {
         name_2379382481: values.phoneNumber,
         name_6917041169: values.message,
       });
-      setAlertVisible(true); // Show alert on success
+      setAlertVisible(true);
       setButtonVisible(false);
     } catch (error) {
       console.error('Error submitting the form:', error);
@@ -45,7 +51,6 @@ const Contact: React.FC = () => {
 
   return (
     <div>
-      
       <Form {...form}>
         <form 
           onSubmit={form.handleSubmit(onSubmit)} 
@@ -134,15 +139,15 @@ const Contact: React.FC = () => {
             <AlertDescription>Your message has been sent successfully.</AlertDescription>
           </Alert>
           )}
-          
-          {buttonVisible &&(
-          <Button
-            className="links border-input hover:bg-input hover:text-black"
-            variant="outline"
-            type="submit"
-          >
-            Send
-          </Button>
+
+          {buttonVisible && (
+            <Button
+              className="links border-input hover:bg-input hover:text-black"
+              variant="outline"
+              type="submit"
+            >
+              Send
+            </Button>
           )}
           
         </form>
