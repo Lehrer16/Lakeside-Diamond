@@ -9,13 +9,11 @@ const Home: React.FC = () => {
 
     return (
         <div>
-            <div>
-                <Link to="https://www.lakesidediamond.com">REFERENCE PAGE</Link>
-            </div>  
+
             
             <img className="logo" src={logo} alt="Lakeside Logo" />
 
-            <Navbar showHomeButton={false} showPhotosButton={true} showInstagramButton={true} />
+            <Navbar showHomeButton={false}/>
 
             <div>
                 <h1>Instagram API</h1>
@@ -24,8 +22,13 @@ const Home: React.FC = () => {
             <div className="contact">
             <Contact />
             </div>
+
+            <div>
+                <Link to="https://www.lakesidediamond.com">REFERENCE PAGE</Link>
+            </div>  
             
         </div>
+        
     );
 };
 

@@ -82,27 +82,90 @@ header {
 
 .links {
   align-items: start;
+  margin-top: 30px;
   margin-right: 10px;
-  background-color: black;
-  color: white;
+  background-color: var(--accent-foreground);
+  color: rgb(0, 0, 0);
   width: 100px;
 }
 
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Align items vertically in the center */
+  width: 100%;
+  padding: 0 1rem;
+  position: relative; /* Establish containing block for absolute positioning */
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.left-row {
+  display: flex;
+  justify-content: flex-start;
+  flex-shrink: 0;
+}
+
+.center-row {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.links {
+  transition: all 0.3s ease; /* Add transition for smooth resizing */
+  color: white;
+  background-color: var(--accent-foreground);
+
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+  }
+
+  .left-row, .center-row {
+    width: 100%; /* Full width for rows */
+    justify-content: center; /* Center items in rows */
+    margin-bottom: 1rem; /* Add space between rows */
+  }
+  .left-row{
+    margin-top: 30px;
+    margin-bottom: 1px;
+  }
+
+  .center-row {
+    position: static;
+    transform: none;
+    margin-bottom: 0; /* Reset margin for center row */
+  }
+
+  .links {
+    flex: 1 1 auto; /* Adjust button size */
+
+    margin-right: 5px;
+  }
+}
+
+
 .links:hover {
-  background-color: grey;
+  background-color: var(--accent-foreground);
 }
 
 .contact {
 
   background-color: black;
-  color: white;
+  color: rgb(161, 159, 159);
   
 }
 
 .contact input {
 
   background-color: black;
-  color: white;
+  color: var(--input);
   
 }
 .contact textarea{
@@ -168,6 +231,7 @@ header {
     --chart-5: 340 75% 55%;
   }
 }
+.dark-variant { color: var(--primary-foreground); }
 
 @layer base {
   * {

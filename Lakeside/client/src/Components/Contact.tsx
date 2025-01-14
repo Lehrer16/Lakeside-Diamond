@@ -45,7 +45,7 @@ export default function Contact() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-3xl mx-auto py-10">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-3xl mx-auto py-10 text-input">
         
         <div className="grid grid-cols-12 gap-4">
           
@@ -110,15 +110,16 @@ export default function Contact() {
         />
             
         <FormField
+        
           control={form.control}
           name="name_6917041169"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="text-input">
               <FormLabel>Message</FormLabel>
               <FormControl>
                 <Textarea
                   placeholder=""
-                  className="resize-none"
+                  className="resize-none border border-input"
                   {...field}
                 />
               </FormControl>
@@ -126,7 +127,13 @@ export default function Contact() {
             </FormItem>
           )}
         />
-        <Button className="links" variant="outline">Send</Button>
+<Button
+  className="links"
+  variant="outline"
+>
+  Send
+</Button>
+
       </form>
     </Form>
   );
