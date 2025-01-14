@@ -6,7 +6,7 @@ import './CSS/index.css';
 import App from './App.tsx';
 import ErrorPage from './Pages/ErrorPage.tsx';
 import Home from './Pages/HomePage.tsx';
-import Photos from './Pages/Photos.tsx';
+import Gallery from './Pages/Gallery.tsx';
 import Login from './Pages/Login.tsx';
 
 
@@ -21,8 +21,8 @@ const router = createBrowserRouter([
         element: <Home />
       },  
       {
-        path: "/Photos",
-        element: <Photos />
+        path: "/Gallery",
+        element: <Gallery />
       }, 
       {
         path: "/Login",

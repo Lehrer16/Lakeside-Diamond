@@ -4,7 +4,7 @@ import example from '../assets/example.jpg';
 import Navbar from "../Components/Navbar";
 
 
-const Photos: React.FC = () => {
+const Gallery: React.FC = () => {
 
 
 
@@ -36,4 +36,4 @@ const Photos: React.FC = () => {
     );
 };
 
-export default Photos;
+export default Gallery;

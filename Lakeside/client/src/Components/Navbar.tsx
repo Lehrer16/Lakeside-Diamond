@@ -27,7 +27,7 @@ const Navbar: React.FC<NavbarProps> = ({
   }, [navigate]);
 
   const handlePhotosClick = useCallback(() => {
-    navigate("/Photos");
+    navigate("/Gallery");
   }, [navigate]);
 
   const handleInstagramClick = useCallback(() => {
@@ -66,7 +66,7 @@ const Navbar: React.FC<NavbarProps> = ({
             className="links"
             variant="outline"
           >
-            Photos
+            Gallery
           </Button>
         )}
       </div>
