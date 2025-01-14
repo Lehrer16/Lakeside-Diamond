@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../assets/logo.png';
 import Navbar from "../Components/Navbar";
-import LoginForm from '../Components/Login';
+import LoginForm from '../Components/Login Form';
 
 
 const Login: React.FC = () => {
