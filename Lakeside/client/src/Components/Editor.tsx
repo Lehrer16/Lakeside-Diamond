@@ -1,9 +1,13 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '../Components/ui/button';
 import Uploader from '../Components/Upload';
 import axios from 'axios';
 
-const Editor = () => {
+interface EditorProps {
+    onSelectedImagesChange: (selectedImages: string[], selectedImagesInOrder: string[]) => void;
+}
+
+const Editor: React.FC<EditorProps> = ({ onSelectedImagesChange }) => {
     const [uploadedImages, setUploadedImages] = useState<string[]>([]);
     const [selectedImages, setSelectedImages] = useState<string[]>([]);
     const [selectedImagesInOrder, setSelectedImagesInOrder] = useState<string[]>([]);
@@ -22,6 +26,10 @@ const Editor = () => {
                 : [...prevSelectedImagesInOrder, image]
         );
     };
+
+    useEffect(() => {
+        onSelectedImagesChange(selectedImages, selectedImagesInOrder);
+    }, [selectedImages, selectedImagesInOrder, onSelectedImagesChange]);
 
     const handleSave = async () => {
         if (window.confirm('Are you sure you want to update the Gallery?')) {
