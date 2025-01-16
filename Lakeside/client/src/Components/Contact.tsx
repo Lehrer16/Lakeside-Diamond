@@ -10,6 +10,7 @@ import { Input } from "./ui/input";
 import { PhoneInput } from './ui/phone-input';
 import { Textarea } from "./ui/textarea";
 import { Alert, AlertTitle, AlertDescription } from "./ui/alert";
+import '../CSS/Contact.css';
 
 const formSchema = z.object({
   firstName: z.string().nonempty("First name is required"),

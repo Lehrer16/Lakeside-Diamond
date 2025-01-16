@@ -4,7 +4,7 @@ import React from 'react';
 import logo from '../assets/logo.png';
 import example from '../assets/example.jpg';
 import Navbar from "../Components/Navbar";
-
+import '../CSS/Gallery.css';
 
 
 const Gallery: React.FC = () => {

@@ -1,6 +1,7 @@
 import React, { useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "../Components/ui/button";
+import '../CSS/Navbar.css'
 
 interface NavbarProps {
   showHomeButton?: boolean;
