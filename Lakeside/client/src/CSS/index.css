@@ -135,6 +135,16 @@ header {
   margin-right: 10px;
   width: 100px;
 }
+.save {
+  display: block;
+  margin: 30px auto 0 auto;
+  margin-top: 30px;
+  margin-right: 10px;
+  width: 100%;
+  color: white;
+  background-color: black;
+  justify-content: center;
+}
 
 .navbar-container {
   display: flex;

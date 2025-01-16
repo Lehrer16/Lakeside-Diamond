@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../assets/logo.png';
-import Navbar from '../components/Navbar';
+import Navbar from '../Components/Navbar';
 import '../CSS/Gallery.css';
 
 const Gallery: React.FC = () => {

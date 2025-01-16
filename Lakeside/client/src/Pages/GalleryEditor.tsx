@@ -113,7 +113,7 @@ const GalleryEditor = () => {
                         </div>
                     ))}
                 </div>
-                <Button className='links' variant='outline' onClick={handleSave}>Save</Button>
+                <Button className='save' variant='outline' onClick={handleSave}>Save</Button>
                 <div>
                 <Button className='links' variant='outline' onClick={handleClear}>clear</Button>
                 <Button className='delete' variant='destructive' onClick={handleDeleteSelected}>Delete</Button>
@@ -123,7 +123,7 @@ const GalleryEditor = () => {
                 <Link to="/">
                     <img className="logo" src={logo} alt="Lakeside Diamond Logo" />
                 </Link>
-                <Navbar showPhotosButton={false} />
+                <Navbar showHomeButton={false} />
                 <div className="photos">
                     {selectedImagesInOrder.map((image, index) => (
                         <img key={index} src={image} alt={`Selected ${index}`} />
