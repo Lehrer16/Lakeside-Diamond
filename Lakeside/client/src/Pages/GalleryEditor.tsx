@@ -28,17 +28,19 @@ const GalleryEditor = () => {
     };
 
     const handleSave = async () => {
-    if (window.confirm('Are you sure you want to update the Gallery?')) {
-        try {
-            await axios.post('/api/gallery/delete-all-public', { images: selectedImages });
-            console.log('Images deleted successfully!');
-            await axios.post('/api/gallery/save-public', { images: selectedImages });
-            console.log('Gallery updated successfully!');
-        } catch (error) {
-            console.error('Error saving images:', error);
-            alert('Failed to save images.');
+        if (window.confirm('Are you sure you want to update the Gallery?')) {
+            try {
+                await axios.post('/api/gallery/delete-all-public', { images: selectedImages });
+                console.log('Images deleted successfully!');
+                await axios.post('/api/gallery/save-public', { images: selectedImages });
+                console.log('Gallery updated successfully!');
+            } catch (error) {
+                console.error('Error saving images:', error);
+                alert('Failed to save images.');
+            }
+        } else {
+            console.log('Gallery not updated!');
         }
-    } else {console.log('Gallery not updated!');}
     };
 
     const handleClear = () => {
@@ -49,7 +51,7 @@ const GalleryEditor = () => {
     const handleDeleteSelected = async () => {
         if (window.confirm('Are you sure you want to delete the selected images?')) {
             try {
-                const deletePromises = selectedImages.map(image => 
+                const deletePromises = selectedImages.map(image =>
                     axios.post('/api/gallery/delete-image', { image })
                 );
                 await Promise.all(deletePromises);
@@ -99,6 +101,11 @@ const GalleryEditor = () => {
                                 className={selectedImages.includes(image) ? 'selected' : ''}
                                 onClick={() => toggleSelectImage(image, true)}
                             />
+                            {selectedImages.includes(image) && (
+                                <div className="selection-number">
+                                    {selectedImagesInOrder.indexOf(image) + 1}
+                                </div>
+                            )}
                         </div>
                     ))}
                     
@@ -110,13 +117,18 @@ const GalleryEditor = () => {
                                 className={selectedImages.includes(image) ? 'selected' : ''}
                                 onClick={() => toggleSelectImage(image, false)}
                             />
+                            {selectedImages.includes(image) && (
+                                <div className="selection-number">
+                                    {selectedImagesInOrder.indexOf(image) + 1}
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>
                 <Button className='save' variant='outline' onClick={handleSave}>Save</Button>
                 <div>
-                <Button className='links' variant='outline' onClick={handleClear}>clear</Button>
-                <Button className='delete' variant='destructive' onClick={handleDeleteSelected}>Delete</Button>
+                    <Button className='links' variant='outline' onClick={handleClear}>clear</Button>
+                    <Button className='delete' variant='destructive' onClick={handleDeleteSelected}>Delete</Button>
                 </div>
             </div>
             <div className="content-column">

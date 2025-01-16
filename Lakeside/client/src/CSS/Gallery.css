@@ -112,6 +112,22 @@ html, body {
   background: red;
 }
 
+.photo-container {
+  position: relative;
+}
+
+.selection-number {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 2px 5px;
+  border-radius: 50%;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
 @media (max-width: 768px) {
   .gallery-editor {
     grid-template-columns: 1fr;
