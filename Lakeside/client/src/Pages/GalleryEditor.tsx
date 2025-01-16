@@ -18,7 +18,7 @@ const GalleryEditor = () => {
                 <img className="logo" src={logo} alt="Lakeside Logo" />
             </Link>
             <div className="upload">
-            <Uploader endpoint="imageUploader" onSuccess={handleUploadSuccess} />
+            <Uploader endpoint="imageUploader" />
             </div>
             <Navbar showPhotosButton={false} />
 

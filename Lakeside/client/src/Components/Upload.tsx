@@ -3,7 +3,6 @@ import { generateUploadDropzone } from '@uploadthing/react';
 
 interface UploaderProps {
     endpoint: string;
-    onSuccess: (imageUrl: string) => void;
 }
 
 const Uploader: React.FC<UploaderProps> = ({ endpoint, onSuccess }) => {
@@ -11,16 +10,16 @@ const Uploader: React.FC<UploaderProps> = ({ endpoint, onSuccess }) => {
         url: "/api/uploadthing",
     });
 
-    const handleUploadComplete = (res: any) => {
-        if (res && res.length > 0) {
-            onSuccess(res[0].url);
-        }
-    };
+
 
     return (
         <UploadDropzone
             endpoint={endpoint}
-            onClientUploadComplete={handleUploadComplete}
+            onClientUploadComplete={(res) => {
+                // Do something with the response
+                console.log("Files: ", res);
+                alert("Upload Completed");
+            }}
         />
     );
 };
