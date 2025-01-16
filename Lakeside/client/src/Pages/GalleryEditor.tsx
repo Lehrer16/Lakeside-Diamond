@@ -41,6 +41,11 @@ const GalleryEditor = () => {
     } else {console.log('Gallery not updated!');}
     };
 
+    const handleClear = () => {
+        setSelectedImages([]);
+        setSelectedImagesInOrder([]);
+    };
+
     const handleDeleteSelected = async () => {
         if (window.confirm('Are you sure you want to delete the selected images?')) {
             try {
@@ -108,8 +113,9 @@ const GalleryEditor = () => {
                         </div>
                     ))}
                 </div>
-                <div>
                 <Button className='links' variant='outline' onClick={handleSave}>Save</Button>
+                <div>
+                <Button className='links' variant='outline' onClick={handleClear}>clear</Button>
                 <Button className='delete' variant='destructive' onClick={handleDeleteSelected}>Delete</Button>
                 </div>
             </div>
