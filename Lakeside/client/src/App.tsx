@@ -8,6 +8,7 @@ function App() {
       {/* <Navbar /> */}
       <main className="container container-fluid mt-5">
         <Outlet />
+        
       </main>
     </div>
   )

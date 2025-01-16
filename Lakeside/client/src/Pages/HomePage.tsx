@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import React from 'react';
 import logo from '../assets/logo.png';
-import example from '../assets/example.jpg';
 import Navbar from "../Components/Navbar";
 import Contact from "../Components/Contact";
+import Instagram from "../Components/Instagram";
 
 const Home: React.FC = () => {
 
@@ -17,8 +17,7 @@ const Home: React.FC = () => {
 
             <div>
                 <Link to='/Login'>ADMIN LOGIN</Link>
-                <h1 className="todo">Instagram API</h1>
-                <img className="instaAPI" src={example} alt="Example Photo" />
+                <Instagram />
             </div>
             <div className="contact">
                 <h1 className="contactInfo">CONTACT US</h1>

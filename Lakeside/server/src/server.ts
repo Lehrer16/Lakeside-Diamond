@@ -3,27 +3,22 @@ import sequelize from './config/connection.js';
 import routes from './routes/index.js';
 import dotenv from 'dotenv';
 import nodemailer, { SendMailOptions, SentMessageInfo } from 'nodemailer';
-
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
-
+// Load environment variables from the .env file
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-
+// Use CORS, JSON, and BodyParser middleware
 app.use(cors());
 app.use(express.static('../client/dist'));
-
-
 app.use(express.json());
 app.use(bodyParser.json());
 
-
-app.use(routes);
-
+// Nodemailer setup for sending emails
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -32,6 +27,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+// API route to send email (you already had this part set up)
 app.post('/send-email', (req, res) => {
   const { name_1228552691, name_4065521563, name_2379382481, name_6917041169 } = req.body;
 
@@ -55,7 +51,34 @@ app.post('/send-email', (req, res) => {
   });
 });
 
+// API route to fetch Instagram photos
+app.get('/instagram-photos', async (req, res) => {
+  const accessToken = process.env.INSTA_TOKEN;
+  const userId = process.env.INSTA_ID;
 
+  if (!accessToken || !userId) {
+    return res.status(400).json({ error: 'Instagram credentials missing.' });
+  }
+
+  try {
+    // Use Instagram Graph API to fetch recent photos (or videos) from the user's account
+    const response = await fetch(
+      `https://graph.instagram.com/${userId}/media?fields=id,media_type,media_url,caption,timestamp&limit=6&access_token=${accessToken}`
+    );
+
+    const data = await response.json();
+
+    if (data.error) {
+      return res.status(500).json({ error: data.error.message });
+    }
+
+    res.json(data.data);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch Instagram photos.' });
+  }
+});
+
+// Sync Sequelize models and start the server
 sequelize.sync({ force: false }).then(async () => {
   app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
@@ -63,4 +86,3 @@ sequelize.sync({ force: false }).then(async () => {
 }).catch((error) => {
   console.error('Unable to connect to the database:', error);
 });
-

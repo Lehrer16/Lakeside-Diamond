@@ -1,8 +1,10 @@
+"use client";
 import { Link } from 'react-router-dom';
 import React from 'react';
 import logo from '../assets/logo.png';
 import example from '../assets/example.jpg';
 import Navbar from "../Components/Navbar";
+
 
 
 const Gallery: React.FC = () => {
@@ -20,6 +22,8 @@ const Gallery: React.FC = () => {
             <Navbar showPhotosButton={false} />
 
             <h1 className='todo'>Photo Browser</h1>
+
+
 
             <div className="photos">
 

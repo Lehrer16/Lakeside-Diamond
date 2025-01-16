@@ -14,6 +14,6 @@
       "*": ["src/*"]          // Optional: to simplify imports
     }
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "../client/src/uploadthing.ts"],
   "exclude": ["node_modules"]
 }
