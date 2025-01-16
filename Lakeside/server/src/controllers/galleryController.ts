@@ -19,3 +19,17 @@ export const getGalleryImages = async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Error fetching images' });
   }
 };
+
+export const deleteGalleryImage = async (req: Request, res: Response) => {
+  const { image } = req.body;
+  try {
+    const deletedImage = await GalleryImage.destroy({ where: { url: image } });
+    if (deletedImage) {
+      res.status(200).json({ message: 'Image deleted successfully' });
+    } else {
+      res.status(404).json({ error: 'Image not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: 'Error deleting image' });
+  }
+};

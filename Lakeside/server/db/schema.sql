@@ -11,12 +11,3 @@ CREATE TABLE users (
   password VARCHAR(255) NOT NULL
 );
 
--- Offices table
-CREATE TABLE offices (
-  id SERIAL PRIMARY KEY,
-  specialty VARCHAR(255),
-  name VARCHAR(255) NOT NULL,
-  address VARCHAR(255),
-  phoneNumber VARCHAR(255),
-
-);

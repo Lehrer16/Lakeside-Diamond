@@ -37,6 +37,30 @@ const GalleryEditor = () => {
         }
     };
 
+    const handleDeleteSelected = async () => {
+        if (window.confirm('Are you sure you want to delete the selected images?')) {
+            try {
+                const deletePromises = selectedImages.map(image => 
+                    axios.post('/api/gallery/delete-image', { image })
+                );
+                await Promise.all(deletePromises);
+
+                const updatedUploadedImages = uploadedImages.filter(img => !selectedImages.includes(img));
+                const updatedGalleryImages = galleryImages.filter(img => !selectedImages.includes(img));
+
+                setUploadedImages(updatedUploadedImages);
+                setGalleryImages(updatedGalleryImages);
+                setSelectedImages([]);
+                setSelectedImagesInOrder([]);
+
+                alert('Selected images deleted successfully!');
+            } catch (error) {
+                console.error('Error deleting images:', error);
+                alert('Failed to delete images.');
+            }
+        }
+    };
+
     useEffect(() => {
         const fetchImages = async () => {
             try {
@@ -57,27 +81,32 @@ const GalleryEditor = () => {
                 <div className="uploader">
                     <Uploader endpoint="imageUploader" setUploadedImages={setUploadedImages} />
                 </div>
-                <div className="photos">
+                <div className="editorPhotos">
                     {uploadedImages.map((image, index) => (
-                        <img
-                            key={`uploaded-${index}`}
-                            src={image}
-                            alt={`Uploaded ${index}`}
-                            className={selectedImages.includes(image) ? 'selected' : ''}
-                            onClick={() => toggleSelectImage(image, true)}
-                        />
+                        <div key={`uploaded-${index}`} className="photo-container">
+                            <img
+                                src={image}
+                                alt={`Uploaded ${index}`}
+                                className={selectedImages.includes(image) ? 'selected' : ''}
+                                onClick={() => toggleSelectImage(image, true)}
+                            />
+                        </div>
                     ))}
                     {galleryImages.map((image, index) => (
-                        <img
-                            key={`gallery-${index}`}
-                            src={image}
-                            alt={`Gallery ${index}`}
-                            className={selectedImages.includes(image) ? 'selected' : ''}
-                            onClick={() => toggleSelectImage(image, false)}
-                        />
+                        <div key={`gallery-${index}`} className="photo-container">
+                            <img
+                                src={image}
+                                alt={`Gallery ${index}`}
+                                className={selectedImages.includes(image) ? 'selected' : ''}
+                                onClick={() => toggleSelectImage(image, false)}
+                            />
+                        </div>
                     ))}
                 </div>
+                <div>
                 <Button className='links' variant='outline' onClick={handleSave}>Save</Button>
+                <Button className='delete' variant='destructive' onClick={handleDeleteSelected}>Delete</Button>
+                </div>
             </div>
             <div className="content-column">
                 <Link to="/">
