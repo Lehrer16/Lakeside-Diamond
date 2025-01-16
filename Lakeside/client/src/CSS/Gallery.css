@@ -116,7 +116,7 @@ html, body {
   .gallery-editor {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    
+    display:unset;
     
   }
 
