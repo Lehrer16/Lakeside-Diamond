@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Uploader from '../components/Upload';
-import Navbar from '../components/Navbar';
+import Uploader from '../Components/Upload';
+import Navbar from '../Components/Navbar';
 import logo from '../assets/logo.png';
-import { Button } from '../components/ui/Button';
+import { Button } from '../Components/ui/button';
 import axios from 'axios';
 import '../CSS/Gallery.css';
 
@@ -28,13 +28,17 @@ const GalleryEditor = () => {
     };
 
     const handleSave = async () => {
+    if (window.confirm('Are you sure you want to update the Gallery?')) {
         try {
-            await axios.post('/api/gallery/save-images', { images: uploadedImages });
-            alert('Images saved successfully!');
+            await axios.post('/api/gallery/delete-all-public', { images: selectedImages });
+            console.log('Images deleted successfully!');
+            await axios.post('/api/gallery/save-public', { images: selectedImages });
+            console.log('Gallery updated successfully!');
         } catch (error) {
             console.error('Error saving images:', error);
             alert('Failed to save images.');
         }
+    } else {console.log('Gallery not updated!');}
     };
 
     const handleDeleteSelected = async () => {
@@ -92,6 +96,7 @@ const GalleryEditor = () => {
                             />
                         </div>
                     ))}
+                    
                     {galleryImages.map((image, index) => (
                         <div key={`gallery-${index}`} className="photo-container">
                             <img

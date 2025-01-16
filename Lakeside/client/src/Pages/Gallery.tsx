@@ -11,7 +11,7 @@ const Gallery: React.FC = () => {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const response = await axios.get('/api/gallery/images');
+                const response = await axios.get('/api/gallery/get-public');
                 setGalleryImages(response.data.map((image: { url: string }) => image.url));
             } catch (error) {
                 console.error('Error fetching images:', error);

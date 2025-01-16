@@ -1,0 +1,5 @@
+CREATE DATABASE user_db;
+CREATE TABLE gallery_images (
+  id SERIAL PRIMARY KEY,
+  url VARCHAR(255) NOT NULL
+);

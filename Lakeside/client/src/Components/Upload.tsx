@@ -1,6 +1,6 @@
 import React from 'react';
 import { generateUploadDropzone } from '@uploadthing/react';
-
+import axios from 'axios';
 
 interface UploaderProps {
     endpoint: string;
@@ -12,6 +12,15 @@ const Uploader: React.FC<UploaderProps> = ({ endpoint, setUploadedImages }) => {
         url: "/api/uploadthing",
     });
 
+    const sendToDatabase = async (urls: string[]) => {
+        try {
+            await axios.post('/api/gallery/save-images', { images: urls });
+            console.log('Successfully saved uploads to the database');
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
     return (
         <UploadDropzone
             className="dropzone"
@@ -19,6 +28,7 @@ const Uploader: React.FC<UploaderProps> = ({ endpoint, setUploadedImages }) => {
             onClientUploadComplete={(res) => {
                 const newImages = res.map(file => file.url);
                 setUploadedImages(prevImages => [...prevImages, ...newImages]);
+                sendToDatabase(newImages);
                 console.log("Upload URL: ", res.map(file => file.url));
             }}
         />
