@@ -1,34 +1,32 @@
 
 .contact {
+  background-color: black;
+  color: var(--input);
+}
 
-    background-color: black;
-    color: var(--input);
-    
-  }
-  
-  .contactInfo{
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .contactButton {
-    display: flex;
-    justify-content: center;
-    transition: all 0.3s ease; 
-    color: white;
-    background-color: var(--accent-foreground);
-  
-  }
-  
-  .contact input {
-  
-    background-color: black;
-    color: var(--input);
-    
-  }
-  .contact textarea{
-    background-color: black;
-  }
-  .phone {
-    background-color: black;
-  }
+.contactInfo{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.contactButton {
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease; 
+  color: white;
+  background-color: var(--accent-foreground);
+
+}
+
+.contact input {
+  background-color: black;
+  color: var(--input);
+}
+
+.contact textarea{
+  background-color: black;
+}
+
+.phone {
+  background-color: black;
+}

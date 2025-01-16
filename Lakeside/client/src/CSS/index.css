@@ -9,7 +9,7 @@
 
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Default: 3 columns per row */
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   justify-items: center;
   margin-top: 20px;
@@ -17,16 +17,15 @@
 
 @media (max-width: 768px) {
   .photo-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium-sized screens */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
   .photo-grid {
-    grid-template-columns: 1fr; /* 1 column on small screens */
+    grid-template-columns: 1fr;
   }
 }
-
 
 .photo {
   position: relative;
@@ -49,8 +48,6 @@
   padding: 0 8px;
   text-align: left;
 }
-
-
 
 .todo{
   display: flex;
@@ -89,8 +86,6 @@ header {
   background-color: none;
   font-size: 1.5em;
 }
-
-
 
 .logo {
   display: flex;
@@ -173,9 +168,6 @@ header {
 
 }
 
-
-
-
 @media (max-width: 768px) {
   .navbar-container {
     flex-direction: column;
@@ -205,7 +197,6 @@ header {
   }
 }
 
-
 .links:hover {
   background-color: var(--accent-foreground);
 }
@@ -228,14 +219,11 @@ header {
   transition: all 0.3s ease; 
   color: white;
   background-color: var(--accent-foreground);
-
 }
 
 .contact input {
-
   background-color: black;
   color: var(--input);
-  
 }
 .contact textarea{
   background-color: black;

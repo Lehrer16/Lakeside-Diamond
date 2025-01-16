@@ -1,44 +1,32 @@
-"use client";
 import { Link } from 'react-router-dom';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from '../assets/logo.png';
-import example from '../assets/example.jpg';
 import Navbar from "../Components/Navbar";
 import '../CSS/Gallery.css';
 
-
 const Gallery: React.FC = () => {
+    const [galleryImages, setGalleryImages] = useState<string[]>([]);
 
-
+    useEffect(() => {
+        const storedImages = localStorage.getItem('galleryImages');
+        if (storedImages) {
+            setGalleryImages(JSON.parse(storedImages));
+        }
+    }, []);
 
     return (
-        <div>
-
- 
+        <div className="gallery-page">
             <Link to="/">
                 <img className="logo" src={logo} alt="Lakeside Logo" />
             </Link>
-
-            <Navbar showPhotosButton={false} />
-
-            <h1 className='todo'>Photo Browser</h1>
-
-
-
-            <div className="photos">
-
-                <img className="insta" src={example} alt="Example Photo" />
-                <img className="insta" src={example} alt="Example Photo" />
-                <img className="insta" src={example} alt="Example Photo" />
-                <img className="insta" src={example} alt="Example Photo" />
-                <img className="insta" src={example} alt="Example Photo" />
-                <img className="insta" src={example} alt="Example Photo" />
+            <Navbar />
+            <div className="gallery">
+                <div className="photos">
+                    {galleryImages.map((image, index) => (
+                        <img key={index} src={image} alt={`Gallery ${index}`} />
+                    ))}
+                </div>
             </div>
-            
-
-            <a className='todo' href="https://www.lakesidediamond.com" target="_blank" rel="noopener noreferrer">REFERENCE PAGE</a>
-
-
         </div>
     );
 };

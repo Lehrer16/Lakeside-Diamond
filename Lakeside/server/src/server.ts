@@ -91,7 +91,6 @@ app.use(
   }),
 );
 
-
 // Sync Sequelize models and start the server
 sequelize.sync({ force: false }).then(async () => {
   app.listen(PORT, () => {

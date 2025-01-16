@@ -1,74 +1,70 @@
 .links {
-    align-items: start;
-    margin-top: 30px;
-    margin-right: 10px;
-    width: 100px;
-  }
-  
+  align-items: start;
+  margin-top: 30px;
+  margin-right: 10px;
+  width: 100px;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 1rem;
+  position: relative;
+  flex-wrap: wrap; 
+}
+
+.left-row {
+  display: flex;
+  justify-content: flex-start;
+  flex-shrink: 0;
+}
+
+.center-row {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.links {
+  transition: all 0.3s ease;
+  color: white;
+  background-color: var(--accent-foreground);
+
+}
+
+@media (max-width: 768px) {
   .navbar-container {
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+  }
+
+  .left-row, .center-row {
     width: 100%;
-    padding: 0 1rem;
-    position: relative;
-    flex-wrap: wrap; 
+    justify-content: center; 
+    margin-bottom: 1rem;
   }
-  
-  .left-row {
-    display: flex;
-    justify-content: flex-start;
-    flex-shrink: 0;
+  .left-row{
+    margin-top: 30px;
+    margin-bottom: 1px;
   }
-  
+
   .center-row {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: static;
+    transform: none;
+    margin-bottom: 0;
   }
-  
+
   .links {
-    transition: all 0.3s ease;
-    color: white;
-    background-color: var(--accent-foreground);
-  
+    flex: 1 1 auto; 
+
+    margin-right: 5px;
   }
-  
-  
-  
-  
-  @media (max-width: 768px) {
-    .navbar-container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .left-row, .center-row {
-      width: 100%;
-      justify-content: center; 
-      margin-bottom: 1rem;
-    }
-    .left-row{
-      margin-top: 30px;
-      margin-bottom: 1px;
-    }
-  
-    .center-row {
-      position: static;
-      transform: none;
-      margin-bottom: 0;
-    }
-  
-    .links {
-      flex: 1 1 auto; 
-  
-      margin-right: 5px;
-    }
-  }
-  
-  
-  .links:hover {
-    background-color: var(--accent-foreground);
-  }
+}
+
+.links:hover {
+  background-color: var(--accent-foreground);
+}
