@@ -3,7 +3,6 @@ html, body {
   margin: 0;
 }
 
-
 .gallery-editor {
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -82,6 +81,21 @@ html, body {
 }
 
 @media (max-width: 768px) {
+  .gallery-editor {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    
+    
+  }
+
+  .uploader-column {
+    order: 1; /* Display uploader column first */
+  }
+
+  .content-column {
+    order: 2; /* Display content column second */
+  }
+
   .photos, .selected-photos {
     grid-template-columns: repeat(2, 1fr);
   }

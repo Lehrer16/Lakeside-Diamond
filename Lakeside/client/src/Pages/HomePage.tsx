@@ -10,7 +10,7 @@ const Home: React.FC = () => {
     return (
         <div>
             <Link to="/">
-                <img className="logo" src={logo} alt="Lakeside Logo" />
+                <img className="logo" src={logo} alt="Lakeside Diamond Logo" />
             </Link>
 
             <Navbar showHomeButton={false} />

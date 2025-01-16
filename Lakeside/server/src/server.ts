@@ -91,6 +91,8 @@ app.use(
   }),
 );
 
+
+
 // Sync Sequelize models and start the server
 sequelize.sync({ force: false }).then(async () => {
   app.listen(PORT, () => {
@@ -99,3 +101,5 @@ sequelize.sync({ force: false }).then(async () => {
 }).catch((error) => {
   console.error('Unable to connect to the database:', error);
 });
+
+app.use(routes);
