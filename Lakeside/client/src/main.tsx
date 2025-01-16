@@ -8,6 +8,7 @@ import ErrorPage from './Pages/ErrorPage.tsx';
 import Home from './Pages/HomePage.tsx';
 import Gallery from './Pages/Gallery.tsx';
 import Login from './Pages/Login.tsx';
+import Editor from './Pages/GalleryEditor.tsx';
 
 
 const router = createBrowserRouter([
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/Login",
         element: <Login />
+      }, 
+      {
+        path: "/Editor",
+        element: <Editor />
       },  
 
 

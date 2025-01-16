@@ -16,7 +16,10 @@ const Home: React.FC = () => {
             <Navbar showHomeButton={false} />
 
             <div>
+                <div>
                 <Link to='/Login'>ADMIN LOGIN</Link>
+                </div>
+                <Link to='/editor'>EDITOR PAGE</Link>
                 <Instagram />
             </div>
             <div className="contact">

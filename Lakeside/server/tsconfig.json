@@ -8,11 +8,7 @@
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "moduleResolution": "node",
-    "baseUrl": "./",          // Optional: adjust based on project needs
-    "paths": {
-      "*": ["src/*"]          // Optional: to simplify imports
-    }
+    "moduleResolution": "node"
   },
   "include": ["src/**/*.ts", "../client/src/uploadthing.ts"],
   "exclude": ["node_modules"]

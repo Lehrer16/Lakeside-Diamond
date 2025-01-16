@@ -5,11 +5,15 @@ import dotenv from 'dotenv';
 import nodemailer, { SendMailOptions, SentMessageInfo } from 'nodemailer';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import { createRouteHandler } from 'uploadthing/express';
+import { uploadRouter } from './uploadthing.js';
+import fetch from 'node-fetch';
 
 // Load environment variables from the .env file
 dotenv.config();
 
 const app = express();
+
 const PORT = process.env.PORT || 3001;
 
 // Use CORS, JSON, and BodyParser middleware
@@ -27,7 +31,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// API route to send email (you already had this part set up)
+// API route to send email
 app.post('/send-email', (req, res) => {
   const { name_1228552691, name_4065521563, name_2379382481, name_6917041169 } = req.body;
 
@@ -77,6 +81,16 @@ app.get('/instagram-photos', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch Instagram photos.' });
   }
 });
+
+// Uploadthing route setup
+app.use(
+  '/api/uploadthing',
+  createRouteHandler({
+    router: uploadRouter,
+    config: { /* your configuration */ },
+  }),
+);
+
 
 // Sync Sequelize models and start the server
 sequelize.sync({ force: false }).then(async () => {

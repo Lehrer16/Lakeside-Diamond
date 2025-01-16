@@ -16,7 +16,7 @@ const Login: React.FC = () => {
                 <img className="logo" src={logo} alt="Lakeside Logo" />
             </Link>
 
-            <Navbar showHomeButton={true} showPhotosButton={true} showInstagramButton={true} />
+            <Navbar  showPhotosButton={false} />
 
             
             <LoginForm />
