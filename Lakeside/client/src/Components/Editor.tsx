@@ -13,7 +13,7 @@ const Editor: React.FC<EditorProps> = ({ onSelectedImagesChange }) => {
     const [selectedImagesInOrder, setSelectedImagesInOrder] = useState<string[]>([]);
     const [galleryImages, setGalleryImages] = useState<string[]>([]);
 
-    const toggleSelectImage = (image: string, isUploaded: boolean) => {
+    const toggleSelectImage = (image: string) => {
         setSelectedImages(prevSelectedImages =>
             prevSelectedImages.includes(image)
                 ? prevSelectedImages.filter(i => i !== image)
@@ -101,7 +101,7 @@ const Editor: React.FC<EditorProps> = ({ onSelectedImagesChange }) => {
                             src={image}
                             alt={`Uploaded ${index}`}
                             className={selectedImages.includes(image) ? 'selected' : ''}
-                            onClick={() => toggleSelectImage(image, true)}
+                            onClick={() => toggleSelectImage(image)}
                         />
                         {selectedImages.includes(image) && (
                             <div className="selection-number">
@@ -117,7 +117,7 @@ const Editor: React.FC<EditorProps> = ({ onSelectedImagesChange }) => {
                             src={image}
                             alt={`Gallery ${index}`}
                             className={selectedImages.includes(image) ? 'selected' : ''}
-                            onClick={() => toggleSelectImage(image, false)}
+                            onClick={() => toggleSelectImage(image)}
                         />
                         {selectedImages.includes(image) && (
                             <div className="selection-number">

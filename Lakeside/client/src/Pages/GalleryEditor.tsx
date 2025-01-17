@@ -6,11 +6,9 @@ import '../CSS/Gallery.css';
 import Editor from '../Components/Editor';
 
 const GalleryEditor = () => {
-    const [selectedImages, setSelectedImages] = useState<string[]>([]);
     const [selectedImagesInOrder, setSelectedImagesInOrder] = useState<string[]>([]);
 
-    const handleSelectedImagesChange = (selectedImages: string[], selectedImagesInOrder: string[]) => {
-        setSelectedImages(selectedImages);
+    const handleSelectedImagesChange = (selectedImagesInOrder: string[]) => {
         setSelectedImagesInOrder(selectedImagesInOrder);
     };
 
